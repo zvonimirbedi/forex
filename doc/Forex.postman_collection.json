@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "a79728dd-2057-4e8c-8475-c7abc1a96d56",
+		"name": "Forex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20905755"
+	},
+	"item": [
+		{
+			"name": "exchangerate API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.exchangerate.host/2022-09-20/?base=EUR&amount=1000000",
+					"protocol": "https",
+					"host": [
+						"api",
+						"exchangerate",
+						"host"
+					],
+					"path": [
+						"2022-09-20",
+						""
+					],
+					"query": [
+						{
+							"key": "base",
+							"value": "EUR"
+						},
+						{
+							"key": "amount",
+							"value": "1000000"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a. Get exchange rate from Currency A to Currency B",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"currency\": \"EUR\",\n  \"exchangeCurrencies\": [\n    \"USD\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/exchange/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "b. Get all exchange rates from Currency A",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"currency\": \"EUR\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/exchange/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "c. Get value conversion from Currency A to Currency B",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 123.876,\n  \"currency\": \"EUR\",\n  \"exchangeCurrencies\": [\n    \"USD\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/exchange/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "d. Get value conversion from Currency A to a list of supplied currencies",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 123.876,\n  \"currency\": \"EUR\",\n  \"exchangeCurrencies\": [\n    \"USD\", \"HRK\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/exchange/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"post"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
