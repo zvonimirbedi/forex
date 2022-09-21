@@ -60,7 +60,7 @@ public class ForexService {
                                     return customRate;
                                 }))
                 .map(rate -> filterRate(rate, forexRequest))
-                .map(rate -> modelMapper.rateToForexResponse(rate));
+                .map(modelMapper::rateToForexResponse);
     }
 
     private Rate filterRate(Rate rate, ForexRequest forexRequest) {

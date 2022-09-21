@@ -2,7 +2,6 @@ package com.example.forex.controller;
 
 import com.example.forex.model.ForexRequest;
 import com.example.forex.model.ForexResponse;
-import com.example.forex.model.Rate;
 import com.example.forex.service.ForexService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
