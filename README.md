@@ -24,4 +24,5 @@ docker run -m 1024m --memory-reservation=512m -p 6379:6379 --name redis redis
 http://localhost:8080/swagger-ui/
 
 ### Postman Collection with examples
-* in doc/ folder
+* in ./doc/ folder
+

@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,6 +24,7 @@ public class ForexRequest {
     @JsonFormat(pattern = "yyyy-MM-dd")
     @ApiModelProperty(example = "2022-09-19")
     private LocalDate date;
+    @DecimalMin(value = "0.01", message = "Smallest allowed amount is 0.01")
     @ApiModelProperty(example = "1000000")
     private BigDecimal amount;
     @ApiModelProperty(example = "[\"USD\",\"GBP\"]")

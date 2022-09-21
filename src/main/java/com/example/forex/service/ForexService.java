@@ -3,6 +3,7 @@ package com.example.forex.service;
 import com.example.forex.component.ExchangeWebClient;
 import com.example.forex.component.ModelMapper;
 import com.example.forex.model.ForexRequest;
+import com.example.forex.model.ForexResponse;
 import com.example.forex.model.Rate;
 import com.example.forex.repository.RedisRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,7 +33,7 @@ public class ForexService {
         this.modelMapper = modelMapper;
     }
 
-    public Mono<Rate> getRates(ForexRequest forexRequest){
+    public Mono<ForexResponse> getRates(ForexRequest forexRequest){
 
         // validation
         LocalDate currentDate = LocalDate.now();
@@ -58,7 +59,8 @@ public class ForexService {
                                     redisRepository.saveRates(customRate, true).subscribe();
                                     return customRate;
                                 }))
-                .map(rate -> filterRate(rate, forexRequest));
+                .map(rate -> filterRate(rate, forexRequest))
+                .map(rate -> modelMapper.rateToForexResponse(rate));
     }
 
     private Rate filterRate(Rate rate, ForexRequest forexRequest) {

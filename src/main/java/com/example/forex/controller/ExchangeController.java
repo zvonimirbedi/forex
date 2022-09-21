@@ -1,6 +1,7 @@
 package com.example.forex.controller;
 
 import com.example.forex.model.ForexRequest;
+import com.example.forex.model.ForexResponse;
 import com.example.forex.model.Rate;
 import com.example.forex.service.ForexService;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,7 @@ public class ExchangeController {
     }
 
     @PostMapping("post")
-    private Mono<Rate> post(@Valid @RequestBody ForexRequest forexRequest) {
+    private Mono<ForexResponse> post(@Valid @RequestBody ForexRequest forexRequest) {
         return forexService.getRates(forexRequest);
     }
 
